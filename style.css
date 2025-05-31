@@ -1,118 +1,208 @@
-/* خلفية الموقع بالكامل */
-body {
-    background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-    color: #00ff88;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    padding: 20px;
-    margin: 0;
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>السلة - Libya X Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+            color: #00ff88;
+            font-family: 'Cairo', sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
 
-/* رأس الصفحة */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #111;
-    padding: 15px 30px;
-    border-bottom: 2px solid #00ff88;
-    box-shadow: 0 2px 10px rgba(0, 255, 136, 0.2);
-    border-radius: 0 0 20px 20px;
-}
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111;
+            padding: 15px 30px;
+            border-bottom: 2px solid #00ff88;
+            box-shadow: 0 2px 10px rgba(0, 255, 136, 0.2);
+            border-radius: 0 0 20px 20px;
+        }
 
-/* الأزرار */
-.btn {
-    background: linear-gradient(to right, #00ff88, #00ffaa);
-    color: #000;
-    padding: 12px 25px;
-    margin: 10px;
-    text-decoration: none;
-    border-radius: 30px;
-    display: inline-block;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        .btn {
+            background: linear-gradient(to right, #00ff88, #00ffaa);
+            color: #000;
+            padding: 12px 25px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 255, 136, 0.5);
-}
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 255, 136, 0.5);
+        }
 
-/* صناديق المنتجات / تسجيل الدخول / السلة */
-.product, .login-box, .cart-box {
-    background: #1b1b1b;
-    padding: 25px;
-    margin: 20px auto;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 450px;
-    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
-    transition: box-shadow 0.3s ease;
-}
+        .cart-box, .phone-box {
+            background: #1b1b1b;
+            padding: 25px;
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+        }
 
-.product:hover, .login-box:hover, .cart-box:hover {
-    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
-}
+        .cart-box:hover, .phone-box:hover {
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
+        }
 
-/* المدخلات */
-input {
-    display: block;
-    width: 95%;
-    padding: 12px 15px;
-    margin: 15px auto;
-    border: none;
-    border-radius: 10px;
-    background: #111;
-    color: #0f0;
-    font-size: 16px;
-    box-shadow: inset 0 0 5px rgba(0, 255, 136, 0.3);
-    transition: box-shadow 0.3s ease;
-}
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #00ffaa;
+        }
 
-input:focus {
-    outline: none;
-    box-shadow: 0 0 10px #00ff88;
-}
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            text-align: right;
+        }
 
-/* حقل إدخال رقم الهاتف بعد الدفع */
-.phone-box {
-    background: #222;
-    padding: 25px;
-    margin: 30px auto;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 450px;
-    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.15);
-}
+        li {
+            background: #2b2b2b;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 18px;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 255, 153, 0.1);
+        }
 
-/* رسالة تأكيد أو خطأ */
-.message {
-    font-size: 18px;
-    margin-top: 20px;
-    color: #00ffaa;
-}
+        .total {
+            font-size: 20px;
+            color: #00ffaa;
+            margin: 10px 0 20px;
+        }
 
-/* رسالة خطأ */
-.message.error {
-    color: #ff4d4d;
-}
+        input {
+            display: block;
+            width: 95%;
+            padding: 12px 15px;
+            margin: 15px auto;
+            border: none;
+            border-radius: 10px;
+            background: #111;
+            color: #0f0;
+            font-size: 16px;
+            box-shadow: inset 0 0 5px rgba(0, 255, 136, 0.3);
+        }
 
-/* زر إرسال رقم الهاتف */
-.send-btn {
-    background: linear-gradient(to right, #00ffaa, #00ff88);
-    border: none;
-    padding: 12px 30px;
-    color: black;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00ff88;
+        }
 
-.send-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 255, 136, 0.4);
-}
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #00ffaa;
+        }
+
+        .message.error {
+            color: #ff4d4d;
+        }
+
+        .send-btn {
+            background: linear-gradient(to right, #00ffaa, #00ff88);
+            border: none;
+            padding: 12px 30px;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0, 255, 136, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="color: #00ff88; font-weight: bold;">🔹 Libya X Store</div>
+        <a href="#" class="btn">🏠 الصفحة الرئيسية</a>
+    </header>
+
+    <div class="cart-box">
+        <h2>🛒 محتويات السلة</h2>
+        <ul id="cart-items"></ul>
+        <div class="total" id="total"></div>
+        <a id="pay-btn" href="#" class="btn">💳 الدفع الآن</a>
+    </div>
+
+    <div class="phone-box" style="display:none;" id="phone-section">
+        <h2>📱 أدخل رقم الهاتف بعد الدفع</h2>
+        <input type="tel" id="phone-input" placeholder="09xxxxxxxx">
+        <button class="send-btn" onclick="submitPhone()">إرسال</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let list = document.getElementById("cart-items");
+        let totalBox = document.getElementById("total");
+        let payBtn = document.getElementById("pay-btn");
+        let phoneSection = document.getElementById("phone-section");
+        let messageBox = document.getElementById("message");
+
+        if (cart.length === 0) {
+            let li = document.createElement("li");
+            li.textContent = "🛍️ السلة فارغة حالياً";
+            list.appendChild(li);
+            payBtn.style.display = "none";
+        } else {
+            let total = 0;
+            cart.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = item.name + " - " + item.price + " دينار";
+                list.appendChild(li);
+                total += item.price;
+            });
+
+            totalBox.textContent = "الإجمالي: " + total + " دينار";
+
+            // كود الدفع عبر USSD
+            let ussdCode = "*122*0926527327*" + (total * 1000) + "*1#";
+            payBtn.href = "tel:" + encodeURIComponent(ussdCode);
+
+            // إظهار إدخال الهاتف بعد الضغط على الدفع
+            payBtn.addEventListener("click", () => {
+                setTimeout(() => {
+                    phoneSection.style.display = "block";
+                }, 1500); // يعطي وقت للرجوع من تطبيق الاتصال
+            });
+        }
+
+        function submitPhone() {
+            let phone = document.getElementById("phone-input").value.trim();
+            if (/^09\d{8}$/.test(phone)) {
+                messageBox.classList.remove("error");
+                messageBox.textContent = "✅ تم استلام رقم الهاتف بنجاح!";
+                localStorage.removeItem("cart");
+            } else {
+                messageBox.classList.add("error");
+                messageBox.textContent = "❌ رقم غير صالح. الرجاء إدخال رقم ليبي صحيح.";
+            }
+        }
+    </script>
+
+</body>
+</html>
