@@ -1,38 +1,76 @@
-
+/* خلفية الموقع بالكامل */
 body {
-    background-color: #111;
-    color: #0f0;
-    font-family: sans-serif;
+    background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+    color: #00ff88;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     padding: 20px;
+    margin: 0;
 }
+
+/* رأس الصفحة */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #222;
-    padding: 10px;
+    background: #111;
+    padding: 15px 30px;
+    border-bottom: 2px solid #00ff88;
+    box-shadow: 0 2px 10px rgba(0, 255, 136, 0.2);
+    border-radius: 0 0 20px 20px;
 }
+
+/* الأزرار */
 .btn {
-    background-color: #0f0;
-    color: black;
-    padding: 10px 20px;
-    margin: 5px;
+    background: linear-gradient(to right, #00ff88, #00ffaa);
+    color: #000;
+    padding: 12px 25px;
+    margin: 10px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
     display: inline-block;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 255, 136, 0.5);
+}
+
+/* صناديق المنتجات / تسجيل الدخول / السلة */
 .product, .login-box, .cart-box {
-    background: #222;
-    padding: 20px;
-    margin: 10px auto;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 400px;
+    background: #1b1b1b;
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+    transition: box-shadow 0.3s ease;
 }
+
+.product:hover, .login-box:hover, .cart-box:hover {
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
+}
+
+/* المدخلات */
 input {
     display: block;
-    width: 90%;
-    padding: 10px;
-    margin: 10px auto;
+    width: 95%;
+    padding: 12px 15px;
+    margin: 15px auto;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    color: #0f0;
+    font-size: 16px;
+    box-shadow: inset 0 0 5px rgba(0, 255, 136, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ff88;
 }
