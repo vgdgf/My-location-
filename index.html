@@ -1,209 +1,162 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CyberMind Academy - أكاديمية الأمن السيبراني</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
-<style>
-  /* Reset */
-  * {
-    box-sizing: border-box;
-    margin: 0; padding: 0;
-  }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: #121212;
-    color: #00ff99;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  header {
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  header h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    color: #00ff99;
-    text-shadow: 0 0 10px #00ff99;
-    letter-spacing: 2px;
-  }
-  header p {
-    font-size: 1.3rem;
-    color: #0f0;
-    margin-top: 8px;
-  }
-
-  /* شبكة المربعات */
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 12px;
-    width: 100%;
-    max-width: 1400px;
-  }
-  .grid-item {
-    background: linear-gradient(135deg, #004d40, #00796b);
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    color: #00ff99;
-    font-weight: 700;
-    font-size: 0.9rem;
-    box-shadow: 0 0 15px #00ff99aa;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 90px;
-    user-select: none;
-  }
-  .grid-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px #00ff99ff;
-  }
-  .grid-item .icon {
-    font-size: 2.4rem;
-    margin-bottom: 8px;
-  }
-
-  /* ألوان مختلفة للمربعات عبر 10 مجموعات */
-  .color-1 { background: linear-gradient(135deg, #004d40, #00796b); }
-  .color-2 { background: linear-gradient(135deg, #1a237e, #3949ab); }
-  .color-3 { background: linear-gradient(135deg, #880e4f, #ad1457); }
-  .color-4 { background: linear-gradient(135deg, #004d40, #43a047); }
-  .color-5 { background: linear-gradient(135deg, #f57c00, #fb8c00); }
-  .color-6 { background: linear-gradient(135deg, #006064, #0097a7); }
-  .color-7 { background: linear-gradient(135deg, #bf360c, #d84315); }
-  .color-8 { background: linear-gradient(135deg, #283593, #5c6bc0); }
-  .color-9 { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
-  .color-10 { background: linear-gradient(135deg, #0d47a1, #1976d2); }
-
-  /* جزء البحث */
-  #search-box {
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 25px;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 10px #00ff99aa;
-    background: #1f1f1f;
-    color: #00ff99;
-    transition: box-shadow 0.3s ease;
-  }
-  #search-box:focus {
-    box-shadow: 0 0 20px #00ff99;
-  }
-
-  /* رسالة لا نتائج */
-  #no-results {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    color: #f00;
-    text-align: center;
-    display: none;
-  }
-
-  /* Responsive */
-  @media (max-width: 1200px) {
-    .grid-container {
-      grid-template-columns: repeat(5, 1fr);
-    }
-    .grid-item {
-      font-size: 0.85rem;
-      min-height: 80px;
-    }
-  }
-  @media (max-width: 600px) {
-    .grid-container {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    .grid-item {
-      font-size: 0.8rem;
-      min-height: 70px;
-    }
-  }
-</style>
+    <meta charset="UTF-8" />
+    <title>تعلم الأمن السيبراني والهاكر الأخلاقي - CyberMaster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0; padding: 0;
+            background: linear-gradient(135deg, #010618, #0c1a33);
+            color: #00ff99;
+            direction: rtl;
+        }
+        header {
+            background: #011627;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,255,153,0.3);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        #search-box {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        #search-box input {
+            width: 90%;
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            background: #02253a;
+            color: #00ff99;
+            box-shadow: 0 0 10px #00ff99;
+            transition: box-shadow 0.3s ease;
+        }
+        #search-box input:focus {
+            box-shadow: 0 0 20px #00ffaa;
+        }
+        .branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+            gap: 15px;
+            max-width: 1100px;
+            margin: 30px auto 50px;
+            padding: 0 15px;
+        }
+        .branch {
+            background: #011627;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 12px rgba(0, 255, 153, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            user-select: none;
+            text-align: center;
+        }
+        .branch:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00ff99;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #011627;
+            color: #00ff99;
+            font-size: 0.9rem;
+            box-shadow: 0 -3px 10px rgba(0,255,153,0.3);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media(max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .branch {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>CyberMind Academy</h1>
-  <p>أكاديمية الأمن السيبراني والهاكر الأخلاقي - 100 فرع تعليمي</p>
+    <h1>تعلم الأمن السيبراني والهاكر الأخلاقي</h1>
 </header>
 
-<input type="text" id="search-box" placeholder="ابحث عن فرع تعليمي... 🔍" />
-
-<div class="grid-container" id="grid-container">
-  <!-- 100 عنصر سوف نولّدهم بالـ JavaScript -->
+<div id="search-box">
+    <input type="text" id="search-input" placeholder="ابحث في الفروع..." />
 </div>
 
-<div id="no-results">⚠️ لم يتم العثور على نتائج مطابقة.</div>
+<div class="branches" id="branches-container">
+    <!-- الفروع تظهر هنا -->
+</div>
+
+<footer>
+    &copy; 2025 CyberMaster - كل الحقوق محفوظة
+</footer>
 
 <script>
-  // قائمة الـ 100 فرع تعليمي مع أيقونات مميزة (رموز من emoji لأبسط البداية)
-  const branches = [
-    { name: "مقدمة في الأمن السيبراني", icon: "🛡️" },
-    { name: "أنظمة التشغيل", icon: "💻" },
-    { name: "الشبكات", icon: "🌐" },
-    { name: "بروتوكولات الإنترنت", icon: "📡" },
-    { name: "التحليل الجنائي الرقمي", icon: "🔍" },
-    { name: "تشفير البيانات", icon: "🔐" },
-    { name: "الهاكر الأخلاقي", icon: "🕵️‍♂️" },
-    { name: "فحص الاختراق", icon: "🛠️" },
-    { name: "البرمجة الأمنية", icon: "📟" },
-    { name: "اختبار الاختراق", icon: "🧪" },
-    // ... (نكرر حتى 100 مع أسماء وأيقونات مختلفة)
-  ];
+    // هنا قائمة 100 فرع (مثال مختصر مع بعض الفروع)
+    const branches = [
+        "مقدمة في الأمن السيبراني",
+        "أساسيات الشبكات",
+        "أنظمة التشغيل وتأمينها",
+        "الهاكر الأخلاقي: المبادئ والقوانين",
+        "هجمات SQL Injection وكيفية الحماية",
+        "اختبار الاختراق (Penetration Testing)",
+        "تشفير البيانات",
+        "تحليل البرمجيات الخبيثة",
+        "أمن تطبيقات الويب",
+        "الجدران النارية (Firewalls)",
+        // ... أضف هنا باقي الفروع ليصلوا 100
+    ];
 
-  // توليد 100 عنصر وهمي (لو القائمة أقل من 100 نكرر)
-  while (branches.length < 100) {
-    branches.push({ name: `فرع تعليمي ${branches.length + 1}`, icon: "📚" });
-  }
+    const container = document.getElementById("branches-container");
+    const searchInput = document.getElementById("search-input");
 
-  const grid = document.getElementById("grid-container");
-  const searchBox = document.getElementById("search-box");
-  const noResults = document.getElementById("no-results");
-
-  // توليد الشبكة
-  function renderGrid(filter = "") {
-    grid.innerHTML = "";
-    const filtered = branches.filter(branch =>
-      branch.name.includes(filter)
-    );
-
-    if (filtered.length === 0) {
-      noResults.style.display = "block";
-      return;
-    } else {
-      noResults.style.display = "none";
+    // دالة عرض الفروع
+    function displayBranches(filter = "") {
+        container.innerHTML = "";
+        const filtered = branches.filter(branch =>
+            branch.includes(filter)
+        );
+        if (filtered.length === 0) {
+            container.innerHTML = "<p style='color:#ff5555; text-align:center;'>لا توجد نتائج</p>";
+            return;
+        }
+        filtered.forEach((branch, idx) => {
+            const div = document.createElement("div");
+            div.className = "branch";
+            div.textContent = branch;
+            div.onclick = () => {
+                alert(`سيتم تحويلك إلى صفحة: ${branch} (قيد التطوير)`);
+                // لاحقاً نربط هنا صفحة الفرع
+            };
+            container.appendChild(div);
+        });
     }
 
-    filtered.forEach((branch, i) => {
-      const div = document.createElement("div");
-      div.className = `grid-item color-${(i % 10) + 1}`;
-      div.innerHTML = `<div class="icon">${branch.icon}</div>${branch.name}`;
-      div.onclick = () => alert(`تم اختيار الفرع: ${branch.name}`);
-      grid.appendChild(div);
+    searchInput.addEventListener("input", (e) => {
+        displayBranches(e.target.value);
     });
-  }
 
-  // عند البحث يحدث التصفية
-  searchBox.addEventListener("input", (e) => {
-    renderGrid(e.target.value.trim());
-  });
+    // عرض كل الفروع أول مرة
+    displayBranches();
 
-  // أول عرض للشبكة
-  renderGrid();
 </script>
 
 </body>
