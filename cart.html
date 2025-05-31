@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>السلة - Libya X Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- خط عصري -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -39,6 +38,7 @@
             list-style: none;
             padding: 0;
             margin-bottom: 25px;
+            text-align: right;
         }
 
         li {
@@ -49,6 +49,13 @@
             font-size: 18px;
             color: #fff;
             box-shadow: 0 2px 8px rgba(0, 255, 153, 0.1);
+        }
+
+        .total {
+            font-size: 20px;
+            color: #00ffaa;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
         .btn {
@@ -74,23 +81,35 @@
     <div class="cart-box">
         <h2>🛒 محتويات السلة</h2>
         <ul id="cart-items"></ul>
-        <a href="tel:*122*0926527327*40000*1#" class="btn">💳 الدفع الآن</a>
+        <div class="total" id="total"></div>
+        <a id="pay-btn" href="#" class="btn">💳 الدفع الآن</a>
     </div>
 
     <script>
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         let list = document.getElementById("cart-items");
+        let totalBox = document.getElementById("total");
+        let payBtn = document.getElementById("pay-btn");
 
         if (cart.length === 0) {
             let li = document.createElement("li");
-            li.textContent = "السلة فارغة حالياً 🛍️";
+            li.textContent = "🛍️ السلة فارغة حالياً";
             list.appendChild(li);
+            payBtn.style.display = "none";
         } else {
+            let total = 0;
             cart.forEach(item => {
                 let li = document.createElement("li");
-                li.textContent = item;
+                li.textContent = item.name + " - " + item.price + " دينار";
                 list.appendChild(li);
+                total += item.price;
             });
+
+            totalBox.textContent = "الإجمالي: " + total + " دينار";
+
+            // استبدل الرقم برقم هاتفك
+            let ussdCode = "*122*0926527327*" + (total * 1000) + "*1#";
+            payBtn.href = "tel:" + encodeURIComponent(ussdCode);
         }
     </script>
 </body>
