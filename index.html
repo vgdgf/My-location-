@@ -1,158 +1,198 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>Libya X Store</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- خط جميل -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <title>سلة التسوق - Libya X Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
     <style>
         body {
             background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
             color: #00ff99;
             font-family: 'Cairo', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 20px;
         }
-
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             background: #121212;
             padding: 20px;
             box-shadow: 0 2px 10px rgba(0, 255, 153, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
         header h1 {
+            margin: 0;
             font-size: 26px;
             color: #00ff99;
-            margin: 0;
         }
-
         .btn {
             background: linear-gradient(to right, #00ff99, #00ffaa);
             color: #000;
             padding: 10px 20px;
-            margin-left: 10px;
-            text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
+            text-decoration: none;
             box-shadow: 0 4px 10px rgba(0, 255, 153, 0.2);
             transition: transform 0.2s ease, box-shadow 0.3s ease;
         }
-
         .btn:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
         }
-
         main {
-            padding: 40px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .product {
+            max-width: 600px;
+            margin: 30px auto;
             background: #1e1e1e;
-            padding: 25px;
             border-radius: 15px;
-            width: 280px;
-            text-align: center;
+            padding: 25px;
             box-shadow: 0 4px 12px rgba(0, 255, 153, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 255, 153, 0.2);
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #00ff99;
         }
-
-        .product h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+        th {
+            background: #121212;
+            font-weight: 700;
+        }
+        .total-row {
+            font-size: 18px;
+            font-weight: bold;
             color: #fff;
         }
-
-        .product p {
-            font-size: 16px;
-            color: #ccc;
-            margin-bottom: 15px;
-        }
-
-        .product button {
-            background: linear-gradient(to right, #00ff99, #00ffaa);
-            color: #000;
+        .remove-btn {
+            background: #e74c3c;
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .remove-btn:hover {
+            background: #c0392b;
+        }
+        .clear-btn {
+            margin-top: 20px;
+            background: linear-gradient(to right, #e74c3c, #db4437);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
+            width: 100%;
+            transition: background-color 0.3s ease;
         }
-
-        .product button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 255, 153, 0.4);
+        .clear-btn:hover {
+            background: linear-gradient(to right, #c0392b, #a93226);
+        }
+        .empty-msg {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 20px;
+            color: #777;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🛒 Libya X Store</h1>
-        <div>
-            <a href="login.html" class="btn">تسجيل الدخول</a>
-            <a href="cart.html" class="btn">السلة</a>
-        </div>
+        <h1>🛒 سلة التسوق - Libya X Store</h1>
+        <a href="index.html" class="btn">العودة للمتجر</a>
     </header>
 
     <main>
-        <div class="product">
-            <h2>بطاقة Google Play 5$</h2>
-            <p>40 دينار</p>
-            <button onclick="addToCart('بطاقة Google Play 5$', 40)">أضف إلى السلة</button>
-        </div>
-        <div class="product">
-            <h2>بطاقة Google Play 10$</h2>
-            <p>80 دينار</p>
-            <button onclick="addToCart('بطاقة Google Play 10$', 80)">أضف إلى السلة</button>
-        </div>
-        <div class="product">
-            <h2>بطاقة Apple iTunes 5$</h2>
-            <p>35 دينار</p>
-            <button onclick="addToCart('بطاقة Apple iTunes 5$', 35)">أضف إلى السلة</button>
-        </div>
-        <div class="product">
-            <h2>بطاقة Apple iTunes 10$</h2>
-            <p>70 دينار</p>
-            <button onclick="addToCart('بطاقة Apple iTunes 10$', 70)">أضف إلى السلة</button>
-        </div>
-        <div class="product">
-            <h2>PUBG UC 60</h2>
-            <p>6 دينار</p>
-            <button onclick="addToCart('PUBG UC 60', 6)">أضف إلى السلة</button>
-        </div>
-        <div class="product">
-            <h2>PUBG UC 325</h2>
-            <p>35 دينار</p>
-            <button onclick="addToCart('PUBG UC 325', 35)">أضف إلى السلة</button>
-        </div>
-        <div class="product">
-            <h2>PUBG UC 660</h2>
-            <p>65 دينار</p>
-            <button onclick="addToCart('PUBG UC 660', 65)">أضف إلى السلة</button>
-        </div>
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>المنتج</th>
+                    <th>السعر (دينار)</th>
+                    <th>حذف</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- العناصر ستضاف هنا ديناميكياً -->
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td>المجموع</td>
+                    <td id="total-price">0</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button class="clear-btn" id="clear-cart-btn">مسح السلة بالكامل</button>
+        <p class="empty-msg" id="empty-msg" style="display:none;">السلة فارغة حالياً.</p>
     </main>
 
     <script>
-        function addToCart(name, price) {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            cart.push({ name: name, price: price });
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert("✅ " + name + " تم إضافتها إلى السلة!");
+        const cartItemsEl = document.getElementById('cart-items');
+        const totalPriceEl = document.getElementById('total-price');
+        const emptyMsgEl = document.getElementById('empty-msg');
+        const clearBtn = document.getElementById('clear-cart-btn');
+
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItemsEl.innerHTML = '';
+
+            if(cart.length === 0){
+                emptyMsgEl.style.display = 'block';
+                clearBtn.style.display = 'none';
+                totalPriceEl.textContent = '0';
+                return;
+            } else {
+                emptyMsgEl.style.display = 'none';
+                clearBtn.style.display = 'block';
+            }
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                const tr = document.createElement('tr');
+
+                const nameTd = document.createElement('td');
+                nameTd.textContent = item.name;
+                tr.appendChild(nameTd);
+
+                const priceTd = document.createElement('td');
+                priceTd.textContent = item.price;
+                tr.appendChild(priceTd);
+
+                const removeTd = document.createElement('td');
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'حذف';
+                removeBtn.className = 'remove-btn';
+                removeBtn.onclick = () => removeItem(index);
+                removeTd.appendChild(removeBtn);
+                tr.appendChild(removeTd);
+
+                cartItemsEl.appendChild(tr);
+            });
+
+            totalPriceEl.textContent = total;
         }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        clearBtn.addEventListener('click', () => {
+            if(confirm('هل أنت متأكد من مسح جميع عناصر السلة؟')) {
+                localStorage.removeItem('cart');
+                loadCart();
+            }
+        });
+
+        window.onload = loadCart;
     </script>
 </body>
 </html>
