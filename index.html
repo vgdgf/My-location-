@@ -1,232 +1,210 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>🌍 أفضل سلة تسوق - Libya X Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Cairo', sans-serif;
-      background: radial-gradient(circle, #0f0f0f, #121212);
-      color: #00ffcc;
-      animation: backgroundGlow 15s infinite alternate;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CyberMind Academy - أكاديمية الأمن السيبراني</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: #121212;
+    color: #00ff99;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  header {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #00ff99;
+    text-shadow: 0 0 10px #00ff99;
+    letter-spacing: 2px;
+  }
+  header p {
+    font-size: 1.3rem;
+    color: #0f0;
+    margin-top: 8px;
+  }
 
-    @keyframes backgroundGlow {
-      from { background-color: #0f0f0f; }
-      to { background-color: #1a1a1a; }
-    }
+  /* شبكة المربعات */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 1400px;
+  }
+  .grid-item {
+    background: linear-gradient(135deg, #004d40, #00796b);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    color: #00ff99;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 0 15px #00ff99aa;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90px;
+    user-select: none;
+  }
+  .grid-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00ff99ff;
+  }
+  .grid-item .icon {
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+  }
 
-    header {
-      background: #000;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 0 30px #00ff99aa;
-    }
+  /* ألوان مختلفة للمربعات عبر 10 مجموعات */
+  .color-1 { background: linear-gradient(135deg, #004d40, #00796b); }
+  .color-2 { background: linear-gradient(135deg, #1a237e, #3949ab); }
+  .color-3 { background: linear-gradient(135deg, #880e4f, #ad1457); }
+  .color-4 { background: linear-gradient(135deg, #004d40, #43a047); }
+  .color-5 { background: linear-gradient(135deg, #f57c00, #fb8c00); }
+  .color-6 { background: linear-gradient(135deg, #006064, #0097a7); }
+  .color-7 { background: linear-gradient(135deg, #bf360c, #d84315); }
+  .color-8 { background: linear-gradient(135deg, #283593, #5c6bc0); }
+  .color-9 { background: linear-gradient(135deg, #4a148c, #7b1fa2); }
+  .color-10 { background: linear-gradient(135deg, #0d47a1, #1976d2); }
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-      background: linear-gradient(to right, #00ff99, #00ffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shine 2s infinite linear;
-    }
+  /* جزء البحث */
+  #search-box {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px #00ff99aa;
+    background: #1f1f1f;
+    color: #00ff99;
+    transition: box-shadow 0.3s ease;
+  }
+  #search-box:focus {
+    box-shadow: 0 0 20px #00ff99;
+  }
 
-    @keyframes shine {
-      0% { filter: brightness(1); }
-      50% { filter: brightness(1.5); }
-      100% { filter: brightness(1); }
-    }
+  /* رسالة لا نتائج */
+  #no-results {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #f00;
+    text-align: center;
+    display: none;
+  }
 
-    .btn {
-      background: linear-gradient(to right, #00ffaa, #00ffd5);
-      color: #000;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4);
-      transition: all 0.3s ease;
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .grid-container {
+      grid-template-columns: repeat(5, 1fr);
     }
-
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 25px rgba(0, 255, 204, 0.6);
+    .grid-item {
+      font-size: 0.85rem;
+      min-height: 80px;
     }
-
-    main {
-      max-width: 700px;
-      margin: 40px auto;
-      background: #1c1c1c;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0, 255, 153, 0.15);
+  }
+  @media (max-width: 600px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      color: #00ffcc;
+    .grid-item {
+      font-size: 0.8rem;
+      min-height: 70px;
     }
-
-    th, td {
-      padding: 14px;
-      border-bottom: 1px solid #333;
-      text-align: center;
-    }
-
-    th {
-      background: #111;
-      font-size: 18px;
-    }
-
-    .total-row {
-      font-weight: bold;
-      font-size: 20px;
-      color: #ffffff;
-    }
-
-    .remove-btn {
-      background: #ff4444;
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .remove-btn:hover {
-      background: #c0392b;
-    }
-
-    .clear-btn {
-      margin-top: 25px;
-      background: linear-gradient(to right, #ff4444, #e74c3c);
-      border: none;
-      padding: 14px;
-      width: 100%;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 16px;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .clear-btn:hover {
-      background: linear-gradient(to right, #c0392b, #a93226);
-    }
-
-    .empty-msg {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 22px;
-      color: #aaa;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>🌟 سلة التسوق - Libya X Store</h1>
-    <a href="index.html" class="btn">🏪 العودة للمتجر</a>
-  </header>
 
-  <main>
-    <table id="cart-table">
-      <thead>
-        <tr>
-          <th>🛍️ المنتج</th>
-          <th>💰 السعر (دينار)</th>
-          <th>🗑️ حذف</th>
-        </tr>
-      </thead>
-      <tbody id="cart-items">
-        <!-- العناصر ديناميكية -->
-      </tbody>
-      <tfoot>
-        <tr class="total-row">
-          <td>المجموع الكلي</td>
-          <td id="total-price">0</td>
-          <td></td>
-        </tr>
-      </tfoot>
-    </table>
+<header>
+  <h1>CyberMind Academy</h1>
+  <p>أكاديمية الأمن السيبراني والهاكر الأخلاقي - 100 فرع تعليمي</p>
+</header>
 
-    <button class="clear-btn" id="clear-cart-btn">🧹 مسح السلة بالكامل</button>
-    <p class="empty-msg" id="empty-msg" style="display:none;">🚫 السلة فارغة حالياً.</p>
-  </main>
+<input type="text" id="search-box" placeholder="ابحث عن فرع تعليمي... 🔍" />
 
-  <script>
-    const cartItemsEl = document.getElementById('cart-items');
-    const totalPriceEl = document.getElementById('total-price');
-    const emptyMsgEl = document.getElementById('empty-msg');
-    const clearBtn = document.getElementById('clear-cart-btn');
+<div class="grid-container" id="grid-container">
+  <!-- 100 عنصر سوف نولّدهم بالـ JavaScript -->
+</div>
 
-    function loadCart() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cartItemsEl.innerHTML = '';
+<div id="no-results">⚠️ لم يتم العثور على نتائج مطابقة.</div>
 
-      if (cart.length === 0) {
-        emptyMsgEl.style.display = 'block';
-        clearBtn.style.display = 'none';
-        totalPriceEl.textContent = '0';
-        return;
-      }
+<script>
+  // قائمة الـ 100 فرع تعليمي مع أيقونات مميزة (رموز من emoji لأبسط البداية)
+  const branches = [
+    { name: "مقدمة في الأمن السيبراني", icon: "🛡️" },
+    { name: "أنظمة التشغيل", icon: "💻" },
+    { name: "الشبكات", icon: "🌐" },
+    { name: "بروتوكولات الإنترنت", icon: "📡" },
+    { name: "التحليل الجنائي الرقمي", icon: "🔍" },
+    { name: "تشفير البيانات", icon: "🔐" },
+    { name: "الهاكر الأخلاقي", icon: "🕵️‍♂️" },
+    { name: "فحص الاختراق", icon: "🛠️" },
+    { name: "البرمجة الأمنية", icon: "📟" },
+    { name: "اختبار الاختراق", icon: "🧪" },
+    // ... (نكرر حتى 100 مع أسماء وأيقونات مختلفة)
+  ];
 
-      emptyMsgEl.style.display = 'none';
-      clearBtn.style.display = 'block';
+  // توليد 100 عنصر وهمي (لو القائمة أقل من 100 نكرر)
+  while (branches.length < 100) {
+    branches.push({ name: `فرع تعليمي ${branches.length + 1}`, icon: "📚" });
+  }
 
-      let total = 0;
+  const grid = document.getElementById("grid-container");
+  const searchBox = document.getElementById("search-box");
+  const noResults = document.getElementById("no-results");
 
-      cart.forEach((item, index) => {
-        total += item.price;
-        const tr = document.createElement('tr');
+  // توليد الشبكة
+  function renderGrid(filter = "") {
+    grid.innerHTML = "";
+    const filtered = branches.filter(branch =>
+      branch.name.includes(filter)
+    );
 
-        tr.innerHTML = `
-          <td>${item.name}</td>
-          <td>${item.price}</td>
-          <td><button class="remove-btn" onclick="removeItem(${index})">حذف</button></td>
-        `;
-
-        cartItemsEl.appendChild(tr);
-      });
-
-      totalPriceEl.textContent = total;
+    if (filtered.length === 0) {
+      noResults.style.display = "block";
+      return;
+    } else {
+      noResults.style.display = "none";
     }
 
-    function removeItem(index) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      loadCart();
-    }
-
-    clearBtn.addEventListener('click', () => {
-      if (confirm("هل تريد مسح السلة بالكامل؟")) {
-        localStorage.removeItem('cart');
-        loadCart();
-      }
+    filtered.forEach((branch, i) => {
+      const div = document.createElement("div");
+      div.className = `grid-item color-${(i % 10) + 1}`;
+      div.innerHTML = `<div class="icon">${branch.icon}</div>${branch.name}`;
+      div.onclick = () => alert(`تم اختيار الفرع: ${branch.name}`);
+      grid.appendChild(div);
     });
+  }
 
-    window.onload = loadCart;
-  </script>
+  // عند البحث يحدث التصفية
+  searchBox.addEventListener("input", (e) => {
+    renderGrid(e.target.value.trim());
+  });
+
+  // أول عرض للشبكة
+  renderGrid();
+</script>
+
 </body>
 </html>
