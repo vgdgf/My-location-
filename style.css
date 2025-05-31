@@ -74,3 +74,45 @@ input:focus {
     outline: none;
     box-shadow: 0 0 10px #00ff88;
 }
+
+/* حقل إدخال رقم الهاتف بعد الدفع */
+.phone-box {
+    background: #222;
+    padding: 25px;
+    margin: 30px auto;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.15);
+}
+
+/* رسالة تأكيد أو خطأ */
+.message {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #00ffaa;
+}
+
+/* رسالة خطأ */
+.message.error {
+    color: #ff4d4d;
+}
+
+/* زر إرسال رقم الهاتف */
+.send-btn {
+    background: linear-gradient(to right, #00ffaa, #00ff88);
+    border: none;
+    padding: 12px 30px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 255, 136, 0.4);
+}
