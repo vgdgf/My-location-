@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Libya X Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- خط عربي جميل -->
+    <!-- خط جميل -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -72,8 +72,14 @@
 
         .product h2 {
             font-size: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #fff;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 15px;
         }
 
         .product button {
@@ -104,25 +110,48 @@
 
     <main>
         <div class="product">
-            <h2>بطاقة Google Play</h2>
-            <button onclick="addToCart('بطاقة Google Play')">أضف إلى السلة</button>
+            <h2>بطاقة Google Play 5$</h2>
+            <p>40 دينار</p>
+            <button onclick="addToCart('بطاقة Google Play 5$', 40)">أضف إلى السلة</button>
         </div>
         <div class="product">
-            <h2>بطاقة PUBG UC</h2>
-            <button onclick="addToCart('بطاقة PUBG UC')">أضف إلى السلة</button>
+            <h2>بطاقة Google Play 10$</h2>
+            <p>80 دينار</p>
+            <button onclick="addToCart('بطاقة Google Play 10$', 80)">أضف إلى السلة</button>
         </div>
         <div class="product">
-            <h2>بطاقة Apple iTunes</h2>
-            <button onclick="addToCart('بطاقة Apple iTunes')">أضف إلى السلة</button>
+            <h2>بطاقة Apple iTunes 5$</h2>
+            <p>35 دينار</p>
+            <button onclick="addToCart('بطاقة Apple iTunes 5$', 35)">أضف إلى السلة</button>
+        </div>
+        <div class="product">
+            <h2>بطاقة Apple iTunes 10$</h2>
+            <p>70 دينار</p>
+            <button onclick="addToCart('بطاقة Apple iTunes 10$', 70)">أضف إلى السلة</button>
+        </div>
+        <div class="product">
+            <h2>PUBG UC 60</h2>
+            <p>6 دينار</p>
+            <button onclick="addToCart('PUBG UC 60', 6)">أضف إلى السلة</button>
+        </div>
+        <div class="product">
+            <h2>PUBG UC 325</h2>
+            <p>35 دينار</p>
+            <button onclick="addToCart('PUBG UC 325', 35)">أضف إلى السلة</button>
+        </div>
+        <div class="product">
+            <h2>PUBG UC 660</h2>
+            <p>65 دينار</p>
+            <button onclick="addToCart('PUBG UC 660', 65)">أضف إلى السلة</button>
         </div>
     </main>
 
     <script>
-        function addToCart(product) {
+        function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            cart.push(product);
+            cart.push({ name: name, price: price });
             localStorage.setItem("cart", JSON.stringify(cart));
-            alert("✅ " + product + " تم إضافتها إلى السلة بنجاح!");
+            alert("✅ " + name + " تم إضافتها إلى السلة!");
         }
     </script>
 </body>
